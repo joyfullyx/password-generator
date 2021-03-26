@@ -135,5 +135,3 @@ function writePassword() {
 // Add event listener to generate button
 // DO NOT CHANGE THIS CODE
 generateBtn.addEventListener("click", writePassword);
-
-
