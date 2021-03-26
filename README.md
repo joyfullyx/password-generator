@@ -29,14 +29,14 @@ The newly created password is then displayed in the text box of the web applicat
 
 [Password Generator](https://joyfullyx.github.io/password-generator/)
 
-![valid number entry](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.20.30%20PM.png)
+![valid number entry](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/validNumEntry.png)
 
-![valid number confirm alert](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.21.01%20PM.png)
+![valid number confirm alert](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/validConfirm.png)
 
-![invalid number entry](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.21.28%20PM.png)
+![invalid number entry](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/invalidNumEntry.png)
 
-![invalid number confirm alert](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.21.40%20PM.png)
+![invalid number confirm alert](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/invalidConfirm.png)
 
-![character type conditional prompt example - 1 of 4](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.21.59%20PM.png)
+![character type conditional prompt example - 1 of 4](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/lowercasePrompt.png)
 
-![generated password](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.22.28%20PM.png)
+![generated password](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/generatedPassword.png)
