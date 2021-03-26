@@ -11,12 +11,8 @@ var specialCharArray = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", "
 var numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // console.log(numbersArray);
 
-var possibleChar = passwordLength + alphaLowerArray.concat(alphaUpperArray, specialCharArray, numbersArray);
-console.log(possibleChar);
-var passwordLength = 0;
-
-// // variable for responses to confirms/prompts
-// var _ = ;
+// to hold valules depending on options
+var holdChar = [];
 
 // Assignment Code
 //DO NOT CHANGE THIS CODE
@@ -24,114 +20,107 @@ var generateBtn = document.querySelector("#generate");
 
 // function to generate password
 function generatePassword(){
-  //TODO: your code here
-  // return "extraSecretPassword"
-
-var passwordLength = prompt("Let's create a password!\n\nEnter a number between 8 and 128 for the length of your password!");
 
 // display prompt asking user for password length
-  // TODO: match edge cases - is a number && is >= 8, <= 128
-  // TODO: ensure that the user answered true to at least one confirm
+var passwordLength = prompt("Please enter a number between 8 and 128");
 
+// match edge cases - is a number && is >= 8, <= 128
+// ensure that the user answered true to at least one confirm
 // check if character length is acceptable
-if (passwordLength >= 8 && passwordLength <= 12) {
-  alert("This password length is valid!");
-} else if (passwordLength < 8) {
-  alert("The number you have selected is too small.\nPlease enter a number between 8 and 128!");
-} else if (passwordLength > 12) {
-  alert("The number you have entered exceeds the character limit.\nPlease enter a number between 8 and 128!");
+if (passwordLength >= 8 && passwordLength <= 128) {
+  confirm("This password length is valid!");
+  // display confirms for all different character types
+  // option 1
+  var lowerCase = confirm("Include lower case letters?");
+  console.log(lowerCase);
+  // option 2
+  var upperCase = confirm("Include upper case letters?");
+  console.log(upperCase);
+  // option 3
+  var specialCharacters = confirm("Include special characters?");
+  console.log(specialCharacters);
+  // option 4
+  var numberValue = confirm("Include number value?");
+  console.log(numberValue);
 } else {
   alert("You have entered an invalid value.\nPlease enter a number between 8 and 128");
+  generatePassword();
 };
-
-// display confirms for all different character types
-// option 1
-var lowerCase = confirm("Include lower case letters?");
-// option 2
-var upperCase = confirm("Include upper case letters?");
-// option 3
-var specialCharacters = confirm("Include special characters?");
-// option 4
-var numberValue = confirm("Include number value?");
 
 
 // check IF the user confirmed on any of the boolean variables that were created
-  // add that array to the possible characters array (combining arrays)
+// add that array to the possible holdChar array (combining arrays)
+
+// option = values concatenated to optionChoiceArray dependant of choices selected
 
 // conditions for user options chosen
-// OK to options 1-4 
-if (lowerCase && upperCase && specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, alphaUpperArray, specialCharArray, numbersArray);
-// OK to options 1-2
-} else if (lowerCase && upperCase && !specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaLowerArray, alphaUpperArray);
-// OK to options 2-3
-} else if (lowerCase && upperCase && !specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaUpperArray, specialCharArray);
-// OK to options 3-4
-} else if (!lowerCase && !upperCase && specialCharacters && numberValue) {
-  option = passwordLength.concat(specialCharArray, numbersArray);
-// OK to options 1, 3
-} else if (lowerCase && !upperCase && specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaLowerArray, specialCharArray);
-// OK to options 1, 4
-} else if (lowerCase && !upperCase && !specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, numbersArray);
-// OK to options 1, 2, 3
-} else if (lowerCase && upperCase && specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaLowerArray, alphaUpperArray, specialCharArray);
-// OK to options 2, 3, 4
-} else if (!lowerCase && upperCase && specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaUpperArray, specialCharArray, numbersArray);
-// OK to options 3, 4, 1
-} else if (lowerCase && !upperCase && specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, specialCharArray, numbersArray);
-// OK to options 4, 1, 2
-} else if (lowerCase && upperCase && !specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, alphaUpperArray, numbersArray);
-// OK to options 1, 3, 4
-} else if (lowerCase && !upperCase && specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, specialCharacters, numberValue);
-// OK to options 1, 2, 4
-} else if (lowerCase && upperCase && !specialCharacters && numberValue) {
-  option = passwordLength.concat(alphaLowerArray, alphaUpperArray, numbersArray); 
-// OK to option 1
-} else if (lowerCase && !upperCase && !specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaLowerArray);
-// OK to option 2
-} else if (!lowerCase && upperCase && !specialCharacters && !numberValue) {
-  option = passwordLength.concat(alphaUpperArray);
-// OK to option 3
-} else if (!lowerCase && !upperCase && specialCharacters && !numberValue) {
-  option = passwordLength.concat(specialCharArray);
-// OK to option 4
-} else if (!lowerCase && !upperCase && !specialCharacters && numberValue) {
-  option = passwordLength.concat(numbersArray);
-// NO to all options
-} else {
-  option = alert("Please select at least one criteria to generate your password!");
+for (var i = 0; i < passwordLength; i++) {
+  holdChar.concat(alphaLowerArray, alphaUpperArray, specialCharArray, numbersArray);
+  // OK to options 1-4 
+  if (lowerCase && upperCase && specialCharacters && numberValue) {
+    option = holdChar.concat(alphaLowerArray, alphaUpperArray, specialCharArray, numbersArray);
+    console.log(lowerCase && upperCase && specialCharacters && numberValue);
+  // OK to options 1-2
+  } else if (lowerCase && upperCase && !specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaLowerArray, alphaUpperArray);
+  // OK to options 2-3
+  } else if (lowerCase && upperCase && !specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaUpperArray, specialCharArray);
+  // OK to options 3-4
+  } else if (!lowerCase && !upperCase && specialCharacters && numberValue) {
+    option = holdChar.concat(specialCharArray, numbersArray);
+  // OK to options 1, 3
+  } else if (lowerCase && !upperCase && specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaLowerArray, specialCharArray);
+  // OK to options 1, 4
+  } else if (lowerCase && !upperCase && !specialCharacters && numberValue) {
+    option = holdChar.concat(alphaLowerArray, numbersArray);
+  // OK to options 1, 2, 3
+  } else if (lowerCase && upperCase && specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaLowerArray, alphaUpperArray, specialCharArray);
+  // OK to options 2, 3, 4
+  } else if (!lowerCase && upperCase && specialCharacters && numberValue) {
+    option = holdChar.concat(alphaUpperArray, specialCharArray, numbersArray);
+  // OK to options 3, 4, 1
+  } else if (lowerCase && !upperCase && specialCharacters && numberValue) {
+    option = holdChar.concat(alphaLowerArray, specialCharArray, numbersArray);
+  // OK to options 4, 1, 2
+  } else if (lowerCase && upperCase && !specialCharacters && numberValue) {
+    option = holdChar.concat(alphaLowerArray, alphaUpperArray, numbersArray);
+  // OK to options 1, 2, 4
+  } else if (lowerCase && upperCase && !specialCharacters && numberValue) {
+    option = holdChar.concat(alphaLowerArray, alphaUpperArray, numbersArray);
+  // OK to option 1
+  } else if (lowerCase && !upperCase && !specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaLowerArray);
+  // OK to option 2
+  } else if (!lowerCase && upperCase && !specialCharacters && !numberValue) {
+    option = holdChar.concat(alphaUpperArray);
+  // OK to option 3
+  } else if (!lowerCase && !upperCase && specialCharacters && !numberValue) {
+    option = holdChar.concat(specialCharArray);
+  // OK to option 4
+  } else if (!lowerCase && !upperCase && !specialCharacters && numberValue) {
+    option = holdChar.concat(numbersArray);
+  // NO to all options
+  } else {
+    option = alert("Please select at least one criteria to generate your password!");
+    generatePassword();
+  };
 };
-
-// prompt("Create a new password:\n\nPassword must include:\n\n8 character minimum\nAt least 1 lowercase letter\nAt least 1 uppercase letters\nAt least 1 number\nAt least 1 symbol");
-
-// create a variable that will hold the final password
-// empty string to hold new password
-var newPassword = "";
-
-// create a loop for as long as passwordLength
-for (var i = 0; i > passwordLength; i++) {
-  newPassword = newPassword.concat(alphaLowerArray, alphaUpperArray, specialCharArray, numbersArray);
+return finalizedPassword(option, passwordLength);
 };
 
 // for each iteration, select a random char out of the possible characters array and add it to the final password variable
-var newPassword = Math.floor(Math.random() * newPassword.length);
-
 // return the final vairable from the generatePassword function
-return newPassword;
-
-  // return "extraSecretPassword"
+// create empty var to hold finalPassword, return finalPassword
+function finalizedPassword(data, passwordLength) {
+  var finalPassword = "";
+  for (var i = 0; i < passwordLength; i++) {
+    finalPassword+= data[Math.floor(Math.random()*data.length)];
 };
-
+return finalPassword;
+};
 
 // Write password to the #password input
 /* DO NOT CHANGE THIS CODE!  This function is going to call your generatePassword() function and whatever is returned from that function will be put onto the page */
