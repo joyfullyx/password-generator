@@ -27,6 +27,8 @@ If the user were to input an invalid character count or did not select any crite
 
 The newly created password is then displayed in the text box of the web application for the user to see. 
 
+[Password Generator](https://joyfullyx.github.io/password-generator/)
+
 ![valid number entry](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.20.30%20PM.png)
 
 ![valid number confirm alert](https://raw.githubusercontent.com/joyfullyx/password-generator/main/images/Screen%20Shot%202021-03-25%20at%208.21.01%20PM.png)
